@@ -1,1 +1,22 @@
-This is where the data will go.
+<div class="scorecard-container" >
+  <div style="padding:10px;">
+    Search: <input ng-model="query">
+    Sort by:
+    <select ng-model="orderProp">
+      <option value="first_name">Name</option>
+      <option value="score">Score</option>
+    </select>
+    State:
+    <select ng-model="stateFilter">
+      <option value=" " selected>All</option>
+      <option ng-repeat="scorecard in scorecards | orderBy:state" value={{scorecard.state}}>{{scorecard.state}}</option>
+    </select>
+  </div>
+  <div ng-repeat="scorecard in scorecards | filter:query | filter:stateFilter  | orderBy:orderProp" class="card" style="background-image:url(/app/img/{{scorecard.image}});">
+    <div ng-class="{'grade-a': ({{scorecard.score}} >= 0), 'grade-f':({{scorecard.score}} < 0)}">
+      <div class="overlay">
+        <div class="score"><div>SCORE: {{scorecard.score}}</div></div>
+        <div class="name"><div>{{scorecard.first_name}} {{scorecard.last_name}}</div></div>
+      </div>
+    </div>
+</div>

@@ -1,22 +1,20 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+var myApp = angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
+  'scorecardControllers',
+  'scorecardServices'
+]);
 
-config(['$routeProvider',
+myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/list', {
-        templateUrl: 'partials/list.html',
-        controller: 'listCtrl'
+      when('/app', {
+        templateUrl: '/app/partials/list.html',
+        controller: 'PoliticiansList'
       }).
       otherwise({
-        redirectTo: 'list'
+        redirectTo: '/app'
       });
     }]);
-
