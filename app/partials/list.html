@@ -13,10 +13,12 @@
     </select>
   </div>
   <div ng-repeat="scorecard in scorecards | filter:query | filter:stateFilter  | orderBy:orderProp" class="card" style="background-image:url(/app/img/{{scorecard.image}});">
-    <div ng-class="{'grade-a': ({{scorecard.score}} >= 0), 'grade-f':({{scorecard.score}} < 0)}">
-      <div class="overlay">
-        <div class="score"><div>SCORE: {{scorecard.score}}</div></div>
-        <div class="name"><div>{{scorecard.first_name}} {{scorecard.last_name}}</div></div>
+    <a href="/{{scorecard.link}}">
+      <div ng-class="{'grade-a': ({{scorecard.score}} >= 0), 'grade-f':({{scorecard.score}} < 0)}">
+        <div class="overlay">
+          <div class="score"><div>SCORE: {{scorecard.score}}</div></div>
+          <div class="name"><div>{{scorecard.first_name}} {{scorecard.last_name}}</div><br><div>Link:</div></div>
+        </div>
       </div>
-    </div>
+    </a>
 </div>

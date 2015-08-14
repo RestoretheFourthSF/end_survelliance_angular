@@ -10,11 +10,15 @@ var myApp = angular.module('myApp', [
 myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/app', {
+      when('/', {
         templateUrl: '/app/partials/list.html',
         controller: 'PoliticiansList'
       }).
+      when('/:politician_link', {
+        templateUrl: '/app/partials/detail.html',
+        controller: 'PoliticiansDetail'
+      });
       otherwise({
-        redirectTo: '/app'
+        redirectTo: '/'
       });
     }]);

@@ -5,6 +5,7 @@ scorecardServices.factory('politiciansFactory', ['$http',function($http){
     this.score = 0;
     this.score_criteria = [];
     this.is_selected =false;
+    this.link ="";
   };
   Politician.prototype.shortenState = function(state) {
     var STATES = {
@@ -369,9 +370,9 @@ scorecardServices.factory('politiciansFactory', ['$http',function($http){
       });
       score += inc;
     }
-
     this.score = score;
     this.score_criteria = score_criteria;
+    this.link = (this["first_name"].concat("-",this["last_name"]).toLowerCase());
   };
 
   var api = {};
