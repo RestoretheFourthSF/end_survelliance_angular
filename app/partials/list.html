@@ -13,7 +13,7 @@
     </select>
   </div>
   <div ng-repeat="scorecard in scorecards | filter:query | filter:stateFilter  | orderBy:orderProp" class="card" style="background-image:url(/app/img/{{scorecard.image}});">
-    <a href="/{{scorecard.link}}">
+    <a href="/app/#/{{scorecard.link}}">
       <div ng-class="{'grade-a': ({{scorecard.score}} >= 0), 'grade-f':({{scorecard.score}} < 0)}">
         <div class="overlay">
           <div class="score"><div>SCORE: {{scorecard.score}}</div></div>

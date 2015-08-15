@@ -13,6 +13,12 @@ scorecardControllers.controller('PoliticiansDetail', ['$scope', 'politiciansFact
   function ($scope, politiciansFactory, $routeParams) {
     politician_link = $routeParams.politician_link;
     politiciansFactory.get(politician).then(function(response){
-      $scope.scorecard = response;
+      scorecards = response;
     });
+    for (var i = 0; i < scorecards.length; i++) {
+      sc = scorecards[i]
+      if (sc.link == politician_link)
+        $scope.scorecard = sc;
+    };
+    $scope.scorecard = {"wtf":"wtf"}
   }]);

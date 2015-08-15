@@ -7,6 +7,7 @@ scorecardServices.factory('politiciansFactory', ['$http',function($http){
     this.is_selected =false;
     this.link ="";
   };
+
   Politician.prototype.shortenState = function(state) {
     var STATES = {
       'AL': 'Alabama',
@@ -65,6 +66,7 @@ scorecardServices.factory('politiciansFactory', ['$http',function($http){
         if (STATES[key] == state)
           return key;
   };
+
   Politician.prototype.populateFromGoogle = function(spreadsheet_entry) {
     var normalize_field = function(field) {
       return spreadsheet_entry['gsx$' + field]['$t'].trim();
@@ -127,6 +129,7 @@ scorecardServices.factory('politiciansFactory', ['$http',function($http){
     this["massie_lofgren_amendment_to_hr2685_defund_702"] = normalize_field('massielofgrenamendmenttohr2685defund702');
     this["massie_lofgren_amendment_to_hr4870_no_backdoors"] = normalize_field('massielofgrenamendmenttohr4870nobackdoors');
   };
+
   Politician.prototype.doScore = function() {
     var score = 0;
     var score_criteria = [];

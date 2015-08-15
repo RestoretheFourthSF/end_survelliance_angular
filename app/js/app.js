@@ -17,7 +17,7 @@ myApp.config(['$routeProvider',
       when('/:politician_link', {
         templateUrl: '/app/partials/detail.html',
         controller: 'PoliticiansDetail'
-      });
+      }).
       otherwise({
         redirectTo: '/'
       });
