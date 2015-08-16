@@ -36,6 +36,10 @@ module.exports = {
   Param 1: a handle to the request object
   Param 2: a handle to the response object
  */
+
+
+
+
 function getLegislator(req, res) {
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
   var lat = req.swagger.params.lat.value;
@@ -54,12 +58,17 @@ function getLegislator(req, res) {
   if (err) {
     res.status(400).json(err);
   }
-  console.log(data)
+  res.json(data['results']);
+  // console.log(data)
   //
   // var modelData = map(data['results'], function(rawLegislator) {
   //   return new Legislator(changeCaseKeys(rawLegislator, 'camelize'))
   // });
-  res.json("Success");
+  // if data['results'] !== undefined
+  //   {}
+  // else
+  //   {res.json([]);}
+
   });
 
 }
