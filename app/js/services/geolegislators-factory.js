@@ -9,10 +9,12 @@ geoLegislatorServices.factory('geoLegislatorFactory', ['$http',function($http){
 
   api={}
   api.get= function(lat,long){
+    console.log(lat,long)
     return $http.get(GEOLEGISLATOR_BASE_URL+"lat="+lat+"&long="+long).then(function(response){
       var legislators = [];
       for (var i = 0; i < response.data.length; i++) {
-        var entry = response.data.feed.entry[i];
+        var entry = response.data[i];
+        console.log(entry)
         var legislator = new GeoLegistator();
         legislators.push(legislator);
       };

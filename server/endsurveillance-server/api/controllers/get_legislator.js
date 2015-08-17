@@ -53,11 +53,11 @@ function getLegislator(req, res) {
     CREDENTIALS:{SUNLIGHT:{API_KEY:process.env.SUNLIGHT_API}},
     API:{SUNLIGHT_BASE_URL:"https://congress.api.sunlightfoundation.com"}
             }
-  console.log()
   sunlight.locateLegislatorsViaSunlight(locQuery, APP_CONFIG, function(err, data) {
   if (err) {
     res.status(400).json(err);
   }
+  console.log(data)
   res.json(data['results']);
   // console.log(data)
   //
