@@ -4,7 +4,9 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
   'scorecardControllers',
-  'scorecardServices'
+  'scorecardServices',
+  'geoLegislatorController',
+  'geoLegislatorServices'
 ]);
 
 myApp.config(['$routeProvider',
