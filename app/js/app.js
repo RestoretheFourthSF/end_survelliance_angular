@@ -13,7 +13,7 @@ myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: '/app/partials/list.html',
+        templateUrl: '/partials/list.html',
         controller: 'PoliticiansList'
       }).
       when('/:politician_link', {
