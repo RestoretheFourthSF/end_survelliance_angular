@@ -18,7 +18,7 @@ schemes:
 # produces:
   # - application/json
 paths:
-  /getLegislator:
+  /lookup/getLegislator:
     # binds a127 app logic to a route
     x-swagger-router-controller: get_legislator
     get:
