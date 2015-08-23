@@ -5,7 +5,9 @@ geoLegislatorServices.factory('geoLegislatorFactory', ['$http',function($http){
     this.bioguide = bioguide;
     this.name = name;
   };
+  // var GEOLEGISLATOR_BASE_URL= "http://127.0.0.1:10010/getLegislator?"
   var GEOLEGISLATOR_BASE_URL= "http://scorecard.restorethefourthsf.com/lookup/getLegislator?"
+
 
   api={}
   api.get= function(lat,long){
