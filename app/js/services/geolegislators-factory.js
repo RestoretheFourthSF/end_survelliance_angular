@@ -1,11 +1,11 @@
 var geoLegislatorServices = angular.module('geoLegislatorServices', []);
 
 geoLegislatorServices.factory('geoLegislatorFactory', ['$http',function($http){
-  function GeoLegistator() {
-    this.bioguide = 0;
-    this.name = "";
+  function GeoLegistator(bioguide,name) {
+    this.bioguide = bioguide;
+    this.name = name;
   };
-  var GEOLEGISLATOR_BASE_URL= "http://127.0.0.1:10010/getLegislator?"
+  var GEOLEGISLATOR_BASE_URL= "http://scorecard.restorethefourthsf.com/lookup/getLegislator?"
 
   api={}
   api.get= function(lat,long){
@@ -15,7 +15,7 @@ geoLegislatorServices.factory('geoLegislatorFactory', ['$http',function($http){
       for (var i = 0; i < response.data.length; i++) {
         var entry = response.data[i];
         console.log(entry)
-        var legislator = new GeoLegistator();
+        var legislator = new GeoLegistator(entry.bioguide_id,entry.first_name+" "+entry.last_name);
         legislators.push(legislator);
       };
       return legislators;
